@@ -88,6 +88,7 @@ Representative terms include:
 - `china tariffs`
 - `retaliatory tariffs`
 - `reciprocal tariffs`
+- `liberation day`, `liberation day tariff`, `liberation day tariffs`
 - contextual duty phrases such as `customs duties` and `import duties`
 
 ## Tests

@@ -40,7 +40,11 @@ END_RE = re.compile(
     re.IGNORECASE,
 )
 WHITESPACE_RE = re.compile(r"\s+")
-DEFAULT_SEARCH_REQUIRED_TERMS = {"liberation day", "liberation day tariff"}
+DEFAULT_SEARCH_REQUIRED_TERMS = {
+    "liberation day",
+    "liberation day tariff",
+    "liberation day tariffs",
+}
 MIN_ITEM_1A_CHARS = 1000
 ITEM_1A_BODY_MARKERS = (
     "the risks and uncertainties described below",

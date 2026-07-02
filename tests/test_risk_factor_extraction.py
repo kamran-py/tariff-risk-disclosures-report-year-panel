@@ -273,6 +273,9 @@ class RiskFactorExtractionTests(unittest.TestCase):
         self.assertIn("customs duties", terms)
         self.assertIn("import duties", terms)
         self.assertIn("duties on imports", terms)
+        self.assertIn("liberation day", terms)
+        self.assertIn("liberation day tariff", terms)
+        self.assertIn("liberation day tariffs", terms)
 
     def test_parses_sec_display_name_with_optional_ticker(self):
         company, ticker = parse_display_name(
