@@ -1,0 +1,35 @@
+ticker,company_name,industry_bucket,notes
+AAPL,Apple Inc.,tech hardware,Consumer electronics supply chain and China exposure
+AMD,Advanced Micro Devices Inc.,tech hardware,Semiconductors
+BA,Boeing Co.,manufacturing,Aerospace manufacturing
+BBY,Best Buy Co. Inc.,retail,Consumer electronics retail
+CAT,Caterpillar Inc.,manufacturing,Heavy equipment
+CMI,Cummins Inc.,manufacturing,Engines and components
+COST,Costco Wholesale Corp.,retail,General merchandise retail
+CSCO,Cisco Systems Inc.,tech hardware,Networking hardware
+DE,Deere & Co.,manufacturing,Agricultural equipment
+DELL,Dell Technologies Inc.,tech hardware,Computer hardware
+EMR,Emerson Electric Co.,manufacturing,Industrial automation and components
+ETN,Eaton Corp. plc,manufacturing,Electrical equipment
+F,Ford Motor Co.,manufacturing,Automotive manufacturing
+GE,GE Aerospace,manufacturing,Aerospace and industrial manufacturing
+GM,General Motors Co.,manufacturing,Automotive manufacturing
+HD,Home Depot Inc.,retail,Home improvement retail
+HPE,Hewlett Packard Enterprise Co.,tech hardware,Enterprise hardware
+HPQ,HP Inc.,tech hardware,PCs and printing
+HON,Honeywell International Inc.,manufacturing,Industrial manufacturing
+INTC,Intel Corp.,tech hardware,Semiconductors
+JCI,Johnson Controls International plc,manufacturing,Building products and controls
+KSS,Kohl's Corp.,retail,Apparel and general merchandise retail
+LOW,Lowe's Companies Inc.,retail,Home improvement retail
+LULU,Lululemon Athletica Inc.,retail,Apparel
+MMM,3M Co.,manufacturing,Diversified manufacturing
+NKE,Nike Inc.,retail,Apparel and footwear
+NVDA,NVIDIA Corp.,tech hardware,Semiconductors and hardware
+QCOM,Qualcomm Inc.,tech hardware,Semiconductors
+ROK,Rockwell Automation Inc.,manufacturing,Factory automation
+SWK,Stanley Black & Decker Inc.,manufacturing,Tools and industrial products
+TGT,Target Corp.,retail,General merchandise retail
+TSLA,Tesla Inc.,manufacturing,Automotive and energy products
+TXN,Texas Instruments Inc.,tech hardware,Semiconductors
+WMT,Walmart Inc.,retail,General merchandise retail
