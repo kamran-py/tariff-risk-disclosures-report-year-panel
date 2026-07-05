@@ -1,6 +1,8 @@
 # Tariff Risk Disclosures: Report-Year Seed Panel
 
-This repository contains a cleaner, balanced 10-K Item 1A Risk Factors dataset for studying tariff-related risk disclosure among trade-exposed public firms from fiscal/report years 2022 through 2025.
+This repository contains a balanced 10-K Item 1A Risk Factors panel for studying
+tariff-related risk disclosure among trade-exposed public firms from
+fiscal/report years 2022 through 2025.
 
 The primary dataset is:
 
@@ -8,7 +10,8 @@ The primary dataset is:
 data/risk_factors_report_year_2022_2025_seed_only.csv
 ```
 
-It covers 34 seed firms, 4 report years, and 136 10-K filings. Each row has a successful Item 1A extraction.
+It covers 34 seed firms, 4 report years, and 136 10-K filings. Each row has a
+successful Item 1A extraction.
 
 ## How This Differs From The Earlier Repo
 
@@ -37,8 +40,8 @@ The script still supports supplemental SEC full-text search through `efts.sec.go
 ## Reproduce The Primary Dataset
 
 ```powershell
-cd C:\Users\kanop\tariff-risk-disclosures-report-year-panel
-$env:SEC_USER_AGENT = "TariffRiskStudy/0.1 kamranahmed.8796@gmail.com"
+cd tariff-risk-disclosures-report-year-panel
+$env:SEC_USER_AGENT = "TariffRiskStudy/0.1 contact@example.com"
 python scripts\build_tariff_risk_dataset.py --no-include-sec-search --output data\risk_factors_report_year_2022_2025_seed_only.csv
 ```
 
@@ -65,6 +68,14 @@ The CSV includes:
 - context excerpts
 
 Use `report_year` as the study year. `filing_year` may be 2026 for fiscal 2025 10-Ks filed in 2026.
+
+## Repository Structure
+
+- `data/`: committed primary panel and generated local cache/output paths.
+- `config/`: seed firm universe and tariff term lists.
+- `scripts/`: EDGAR collection, extraction, and panel-building code.
+- `tests/`: extraction and date-normalization checks.
+- `DATASET_SUMMARY.md`: descriptive statistics and research caveats.
 
 ## Firm Universe
 
