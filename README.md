@@ -1,8 +1,7 @@
 # Tariff Risk Disclosures: Report-Year Seed Panel
 
-This repository contains a balanced 10-K Item 1A Risk Factors panel for studying
-tariff-related risk disclosure among trade-exposed public firms from
-fiscal/report years 2022 through 2025.
+Balanced 10-K Item 1A Risk Factors panel for studying tariff-risk disclosure
+among trade-exposed public firms, fiscal years 2022–2025.
 
 The primary dataset is:
 
@@ -10,22 +9,22 @@ The primary dataset is:
 data/risk_factors_report_year_2022_2025_seed_only.csv
 ```
 
-It covers 34 seed firms, 4 report years, and 136 10-K filings. Each row has a
-successful Item 1A extraction.
+It covers 34 seed firms, four report years, and 136 successfully extracted 10-Ks.
 
 ## How This Differs From The Earlier Repo
 
-The earlier repository at `kamran-py/tariff-risk-disclosures` used a different workflow and included older exploratory outputs. This repository is intended as the cleaner research panel.
+`kamran-py/tariff-risk-disclosures` used an earlier exploratory workflow. This
+repository is its cleaner research panel.
 
 Main differences:
 
 - Uses fiscal/report year as the study year, not filing calendar year.
 - Includes fiscal 2025 10-Ks filed in calendar 2026.
 - Excludes supplemental SEC full-text search rows from the primary dataset.
-- Provides a balanced seed-firm-only panel: 34 firms x 4 report years.
-- Hardens Item 1A extraction against table-of-contents entries, cross-references, short anchors, and 52/53-week fiscal-year edge cases.
+- Provides a balanced seed-only panel: 34 firms × 4 report years.
+- Handles table-of-contents entries, cross-references, short anchors, and 52/53-week fiscal-year edge cases.
 - Removes broad standalone `duties` from the tariff term list and keeps contextual phrases such as `customs duties`, `import duties`, and `duties on imports`.
-- Stores extraction status and failure reason fields in the output schema, even though all rows in the primary seed-only CSV succeeded.
+- Stores extraction status and failure reason, though every primary-panel row succeeded.
 
 ## Data Sources
 
@@ -35,23 +34,21 @@ The workflow uses SEC EDGAR public endpoints:
 - company submissions: `https://data.sec.gov/submissions/CIK##########.json`
 - filing documents from SEC Archives: `https://www.sec.gov/Archives/edgar/data/...`
 
-The script still supports supplemental SEC full-text search through `efts.sec.gov/LATEST/search-index`, but the checked-in primary CSV was generated with `--no-include-sec-search`.
+The script also supports supplemental SEC full-text search; the committed CSV
+uses `--no-include-sec-search`.
 
 ## Reproduce The Primary Dataset
 
 ```powershell
-cd tariff-risk-disclosures-report-year-panel
+cd tariff-risk-disclosures-v2
 $env:SEC_USER_AGENT = "TariffRiskStudy/0.1 contact@example.com"
 python scripts\build_tariff_risk_dataset.py --no-include-sec-search --output data\risk_factors_report_year_2022_2025_seed_only.csv
 ```
 
-SEC access behavior:
+SEC access:
 
-- descriptive User-Agent
-- caching under `data/cache`
-- retries/backoff
-- default throttle of 8 requests/second
-- hard cap check rejecting values above 10 requests/second
+- descriptive `User-Agent`, caching, and retries
+- default throttle of 8 requests/second; hard cap of 10
 
 ## Dataset Fields
 
@@ -61,19 +58,18 @@ The CSV includes:
 - SEC filing metadata
 - SEC filing URL
 - extraction status and failure reason
-- full extracted Item 1A Risk Factors text
-- risk-factor word and character counts
+- extracted Item 1A text and word/character counts
 - tariff-term hit count
 - matched terms
 - context excerpts
 
-Use `report_year` as the study year. `filing_year` may be 2026 for fiscal 2025 10-Ks filed in 2026.
+Use `report_year` as the study year; `filing_year` may be 2026 for fiscal-2025 filings.
 
 ## Repository Structure
 
-- `data/`: committed primary panel and generated local cache/output paths.
-- `config/`: seed firm universe and tariff term lists.
-- `scripts/`: EDGAR collection, extraction, and panel-building code.
+- `data/`: committed panel and generated cache/output paths.
+- `config/`: seed universe and term lists.
+- `scripts/`: EDGAR collection, extraction, and panel construction.
 - `tests/`: extraction and date-normalization checks.
 - `DATASET_SUMMARY.md`: descriptive statistics and research caveats.
 
@@ -91,7 +87,7 @@ It includes:
 
 The term list is in `config/tariff_terms.txt`.
 
-Representative terms include:
+Representative terms:
 
 - `tariff`, `tariffs`
 - `trade restrictions`, `trade barriers`
@@ -108,7 +104,8 @@ Representative terms include:
 python -m unittest discover -s tests
 ```
 
-The tests cover CIK/URL construction, report-year selection, early-January fiscal-year normalization, Item 1A extraction boundaries, table-of-contents false positives, AMD-like cross-reference false starts, Kohl's-style body starts without repeated Item headings, and tariff-term matching.
+Tests cover CIK/URL construction, report-year selection, fiscal-year normalization,
+Item 1A boundaries, false starts, and tariff matching.
 
 ## Research Summary
 
